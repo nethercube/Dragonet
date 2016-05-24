@@ -40,7 +40,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.ConcurrentHashMap;
-import org.dragonet.Dragonet;
 
 /**
  * author: MagicDroidX
@@ -408,7 +407,7 @@ public class SessionManager {
             if (timeout == -1) {
                 finalTime = Long.MAX_VALUE;
             } else {
-                DragonetServer.instance().getLogger().info("Blocked " + address + " for " + timeout + " seconds");
+                System.out.println("Blocked address " + address + " for " + timeout);
             }
             this.block.put(address, finalTime);
         } else if (this.block.get(address) < finalTime) {

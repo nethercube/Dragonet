@@ -6,6 +6,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <groupId>org.dragonet</groupId>
     <artifactId>dragonet</artifactId>
     <version>0.0.1</version>
+    <modelVersion>4.0.0</modelVersion>
     <name>Dragonet</name>
     <url>https://github.com/DragonetMC/Dragonet</url>
 	
@@ -20,10 +21,15 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <name>Sonatype Nexus</name>
             <layout>default</layout>
             <url>https://oss.sonatype.org/content/repositories/public/</url>
-        </repository> 
+        </repository>
+            <repository><id>caucho</id>
+            <name>Caucho Snapshot repo</name>
+            <layout>default</layout>
+            <url>http://caucho.com/m2-snapshot</url>
+    </repository>
     </repositories>
     
-    <dependencies>  
+    <dependencies>
         <dependency>
             <groupId>org.mozilla</groupId>
             <artifactId>rhino</artifactId>
@@ -48,18 +54,6 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
             <artifactId>slf4j-jdk14</artifactId>
             <version>1.7.7</version>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.4</version>
-            <type>jar</type>
-        </dependency>
     </dependencies>
     
     <build>
@@ -76,25 +70,6 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
         <defaultGoal>clean install</defaultGoal>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>build-helper-maven-plugin</artifactId>
-                <version>1.9.1</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <goals>
-                            <goal>add-source</goal>
-                        </goals>
-                        <configuration>
-                            <sources>
-                                <source>${project.basedir}/src/main/java</source>                          
-                            </sources>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
                 <version>2.1</version>
@@ -103,7 +78,6 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
                         <manifestEntries>
                             <Main-Class>org.dragonet.Dragonet</Main-Class>
                             <Implementation-Title>${project.name}</Implementation-Title>
-                            <Implementation-Version>${describe}</Implementation-Version>                    
                             <Sealed>true</Sealed>
                         </manifestEntries>
                         <manifestSections>
