@@ -20,7 +20,7 @@ public class Versioning {
 	
 	public final static String DRAGONET_VERSION = "0.0.1";
 	
-	public final static String MCPE_VERSION = "0.14.2";
-	public final static int MCPE_PROTOCOL = 60;
+	public final static String MCPE_VERSION = "0.14.3";
+	public final static int MCPE_PROTOCOL = 70;
 	
 }
